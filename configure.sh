@@ -2,7 +2,7 @@
 
 LOG_FILE="main.log"
 
-source ./applications/headless/apt_packages.sh
+source ./applications/headless/packages.sh
 source ./utils.sh
 
 main() {
