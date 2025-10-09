@@ -1,23 +1,24 @@
-# Install all packages
+install_yay() {
+    sudo pacman -S --needed git base-devel --noconfirm
+
+    tmp_dir=$(mktemp -d)
+
+    git clone https://aur.archlinux.org/yay-bin.git "$tmp_dir/yay-bin"
+    makepkg -si --noconfirm --cwd "$tmp_dir/yay-bin"
+
+    rm -rf "$tmp_dir"
+}
+
 install_packages() {
-    sudo apt-get update -y
-
-    # Rust
-    source ./applications/headless/rustup.sh
-    ./applications/headless/rustup.sh
-
     # Install packages with error handling
     echo "Installing terminal apt pkgs..."
     for package in "${packages[@]}"; do
-        sudo apt-get install -y $package || {
+        yay -S --noconfirm $package || {
             echo "Failed to install $package, skipping..."
         }
     done
 
     echo "Installed pkgs: ${packages[*]}"
-
-    echo "Installing terminal non apt packages..."
-    ./applications/headless/non_apt_packages.sh
 
     echo "Finished installing terminal packages."
 }
@@ -37,18 +38,6 @@ asdf_configure() {
     else
         echo "asdf already installed, skipping..."
     fi
-
-    #asdf_languages=(
-    #    "nodejs"
-    #    "ruby"
-    #    "python"
-    #)
-
-    #for language in "${asdf_languages[@]}"; do
-    #    asdf plugin-add $language
-    #    asdf install $language latest
-    #    asdf global $language latest
-    #done
 }
 
 # Clones repositories
@@ -63,15 +52,6 @@ clone_repositories() {
         }
     fi
 
-    if [ -d "$HOME/.zsh/zsh-autosuggestions" ]; then
-        echo "Zsh-autosuggestions directory already exists. Skipping git clone."
-    else
-        git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions" || {
-            echo "Failed to clone Zsh-autosuggestions repository"
-            return 1
-        }
-    fi
-
     echo "Installing lazyvim"
     rm -rf "$HOME/.config/nvim" # Remove existing nvim directory before cloning
     git clone https://github.com/LazyVim/starter $HOME/.config/nvim || {
@@ -79,25 +59,6 @@ clone_repositories() {
         return 1
     }
     rm -rf $HOME/.config/nvim/.git
-
-    if ! command -v curl &>/dev/null; then
-        echo "CURL NOT INSTALLED, LAZYGIT INSTALLATION CANCELLED."
-        return 1
-    else
-        echo "Installing lazygit"
-        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-        curl -Lo $HOME/lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-        tar xf $HOME/lazygit.tar.gz lazygit
-        sudo install lazygit /usr/local/bin
-
-        # Cleans the trash
-        rm -rf $HOME/lazygit.tar.gz
-        rm -rf $HOME/lazygit
-    fi
-
-    if ! command -v lazygit &>/dev/null; then
-        echo "lazygit was not installed, skipping."
-    fi
 
     echo "Repositories cloned."
 }
