@@ -1,10 +1,10 @@
-# LinuxTools-Term
+# archdots
 
 ## Disclaimer
-This repository focuses on installing necessary development tools and customization for Ubuntu/derivatives environments. The installed packages are **completely opinionated and hardcoded for my use case**. I'm not planning on making it general purpose - the GitHub upload is more of a backup than anything else.
+This repository focuses on installing necessary development tools and customization for Arch Linux. The installed packages are **completely opinionated and hardcoded for my use case**. I'm not planning on making it general purpose - the GitHub upload is more of a backup than anything else.
 
 ## What it does
-This script installs essential packages for development, configures terminal shortcuts, and applies pre-existing configuration files for customized or "riced" applications. linuxtools-term is intended for use in headless environments, such as Ubuntu Server machines accessed via SSH.
+This script installs essential packages for development, configures terminal shortcuts, and applies pre-existing configuration files for customized or "riced" applications. archdots is intended for use in headless environments, such as Ubuntu Server machines accessed via SSH.
 
 ## Installation
 
@@ -17,8 +17,8 @@ sudo apt install git
 ### Steps
 1. Clone the repository:
 ```bash
-git clone https://github.com/RoPedro/linuxtools-term $HOME/linuxtools-term &&
-cd $HOME/linuxtools-term
+git clone https://github.com/RoPedro/archdots $HOME/archdots &&
+cd $HOME/archdots
 ```
 
 2. Run the first script to install zsh:
