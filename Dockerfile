@@ -1,10 +1,15 @@
 FROM archlinux:latest
 
-# Updates and installs essentials
-RUN pacman -Syu --noconfirm && pacman -S --noconfirm \
-  sudo \
-  vim \
-  git
+ENV TERM=xterm
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
+
+RUN pacman -Syu --noconfirm && \
+    pacman -S --noconfirm reflector && \
+    # Update mirrorlist to the 10 fastest HTTPS mirrors
+    reflector --latest 10 --protocol https --sort rate --save /etc/pacman.d/mirrorlist && \
+    # Update the system again after refreshing mirrors
+    pacman -S --noconfirm sudo vim git base-devel
 
 RUN useradd -ms /bin/bash testuser && \
   echo "testuser ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
