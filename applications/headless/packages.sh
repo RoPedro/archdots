@@ -16,8 +16,10 @@ packages=(
     "ripgrep"
     "docker"
     "fastfetch"
+    "stow"
 
     # Shell tools
+    "zsh"
     "zsh-syntax-highlighting"
     "zsh-autosuggestions"
     "zsh-completions"
