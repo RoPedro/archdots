@@ -14,7 +14,7 @@ main() {
     else
         echo "Yay is already installed."
     fi
-    
+
     install_packages
     install_tpm
 
@@ -22,7 +22,13 @@ main() {
 
     copy_dotfiles
 
-    echo "Configuration complete. Run "source ~/.zshrc" and "source ~/.tmux.conf" to apply changes."
+    DOTFILES_DIR=$HOME/dotfiles
+    (
+        cd $DOTFILES_DIR
+        stow *
+    )
+
+    echo "Configuration complete, logout recommended."
 }
 
 main 2>&1 | tee "$LOG_FILE"
