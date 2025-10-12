@@ -26,6 +26,12 @@ install_packages() {
     echo "Finished installing terminal packages."
 }
 
+# tmux plugin manager can't be on dotfiles
+# because it's going to be treatedas a submodule
+install_tpm() {
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+}
+
 check_configure_git() {
     # Check if Git is installed
     if ! command -v git &>/dev/null; then
