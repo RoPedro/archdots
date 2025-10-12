@@ -7,7 +7,14 @@ source ./utils.sh
 
 main() {
     check_configure_git
-    install_yay
+
+    if ! command -v yay &>/dev/null; then
+        echo "Yay is not installed. Installing yay..."
+        install_yay
+    else
+        echo "Yay is already installed."
+    fi
+    
     install_packages
     install_tpm
 
