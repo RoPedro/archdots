@@ -9,6 +9,7 @@ main() {
     check_configure_git
     install_yay
     install_packages
+    insatll_tpm
 
     sudo chsh -s $(which zsh) $USER
 
