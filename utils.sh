@@ -52,7 +52,7 @@ check_configure_git() {
 copy_dotfiles() {
     ARCHDOTS=$HOME/archdots
 
-    cp -afv $ARCHDOTS/dotfiles $HOME
+    cp -r $ARCHDOTS/dotfiles $HOME
 
     echo "Zsh configurations complete."
 }
