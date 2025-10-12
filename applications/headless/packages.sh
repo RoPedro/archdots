@@ -20,6 +20,7 @@ packages=(
 
     # Shell tools
     "zsh"
+    "zsh-theme-powerlevel10k-git"
     "zsh-syntax-highlighting"
     "zsh-autosuggestions"
     "zsh-completions"
