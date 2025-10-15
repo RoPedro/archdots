@@ -10,9 +10,6 @@ alias prj='cd $HOME/projects'
 alias neofetch='fastfetch'
 alias nv='nvim'
 alias lzg='lazygit'
-alias bat='batcat'
-alias catp='batcat -p'
-alias uptupg='sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
 
 # Others
 alias cl='clear'
