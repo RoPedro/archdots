@@ -56,9 +56,7 @@ check_configure_git() {
 
 # Configures main shell and main theme
 copy_dotfiles() {
-    ARCHDOTS=$HOME/archdots
+    git clone https://github.com/RoPedro/dotfiles.git $HOME/.dotfiles
 
-    cp -r $ARCHDOTS/dotfiles $HOME
-
-    echo "Zsh configurations complete."
+    echo "dotfiles cloned."
 }
