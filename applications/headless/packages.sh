@@ -2,6 +2,9 @@ packages=(
     # Common tools
     "wget"
     "curl"
+    "tar"
+    "nodejs" # nvim-treesitter dependency
+    "tree-sitter"
     "net-tools"
     "traceroute"
     "iproute2"
