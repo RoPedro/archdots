@@ -22,7 +22,7 @@ main() {
 
     copy_dotfiles
 
-    DOTFILES_DIR=$HOME/dotfiles
+    DOTFILES_DIR=$HOME/.dotfiles
     (
         cd $DOTFILES_DIR
         stow *
