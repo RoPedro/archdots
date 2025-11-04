@@ -20,6 +20,7 @@ packages=(
     "docker"
     "fastfetch"
     "stow"
+    "mise"
 
     # Shell tools
     "zsh"
