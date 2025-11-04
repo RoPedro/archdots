@@ -42,4 +42,11 @@ packages=(
     "gcc-11"
     "g++-11"
     "make"
+
+    # Additional libraries
+    "libyaml"
+    "openssl"
+    "zlib"
+    "gdbm"
+    "readline"
 )
