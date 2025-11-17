@@ -1,17 +1,17 @@
 desktop_pkgs=(
-  "waybar"
-  "mako"
-  "hyprpaper"
-  "hyprshot"
-  "nautilus"
-  "discord"
-  "obsidian"
-  "qbittorrent"
-  "peazip"
-  "vlc"
+    "waybar"
+    "mako"
+    "hyprpaper"
+    "hyprshot"
+    "nautilus"
+    "discord"
+    "obsidian"
+    "qbittorrent"
+    "peazip"
+    "vlc"
 
-  # dependencies
-  "vlc-plugins-all"
-  "ffmpeg"
-  "polkit-gnome"
+    # dependencies
+    "vlc-plugins-all"
+    "ffmpeg"
+    "polkit-gnome"
 )
