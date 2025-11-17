@@ -14,16 +14,25 @@ install_yay() {
 
 install_packages() {
     # Install packages with error handling
-    echo "Installing terminal apt pkgs..."
-    for package in "${packages[@]}"; do
+    echo "Installing terminal pkgs..."
+    for package in "${headless_pkgs[@]}"; do
         yay -S --noconfirm $package || {
             echo "Failed to install $package, skipping..."
         }
     done
 
-    echo "Installed pkgs: ${packages[*]}"
-
+    echo "Installed pkgs: ${headless_pkgs[*]}"
     echo "Finished installing terminal packages."
+
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+        echo "Installing desktop pkgs..."
+        for pkg in "${desktop_pkgs[@]}"; do
+            yay -S --noconfirm $pkg || {
+                echo "Failed to install $pkg, skipping..."
+            }
+        done
+    fi
+
 }
 
 # tmux plugin manager can't be on dotfiles

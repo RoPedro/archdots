@@ -3,6 +3,7 @@
 LOG_FILE="main.log"
 
 source ./applications/headless/packages.sh
+source ./applications/desktop/packages.sh
 source ./utils.sh
 
 main() {

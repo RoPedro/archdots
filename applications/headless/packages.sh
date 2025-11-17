@@ -1,4 +1,4 @@
-packages=(
+headless_pkgs=(
     # Common tools
     "wget"
     "curl"
@@ -21,6 +21,8 @@ packages=(
     "fastfetch"
     "stow"
     "mise"
+    "fzf"
+    "fd"
 
     # Shell tools
     "zsh"
