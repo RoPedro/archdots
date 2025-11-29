@@ -69,3 +69,9 @@ copy_dotfiles() {
 
     echo "dotfiles cloned."
 }
+
+copy_wallpapers() {
+    git clone https://github.com/RoPedro/wallpapers.git $HOME/.wallpapers
+
+    echo "wallpapers cloned."
+}

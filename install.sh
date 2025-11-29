@@ -22,10 +22,16 @@ main() {
     sudo chsh -s $(which zsh) $USER
 
     copy_dotfiles
+    copy_wallpapers
 
     DOTFILES_DIR=$HOME/.dotfiles
     (
         cd $DOTFILES_DIR
+
+        if [ -d keyd ]; then
+            sudo stow -t / keyd # keyd needs stow since it's /etc
+        fi
+
         stow *
     )
 
