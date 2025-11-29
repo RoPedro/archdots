@@ -22,6 +22,7 @@ main() {
     sudo chsh -s $(which zsh) $USER
 
     copy_dotfiles
+    copy_wallpapers
 
     DOTFILES_DIR=$HOME/.dotfiles
     (
