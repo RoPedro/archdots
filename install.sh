@@ -26,6 +26,11 @@ main() {
     DOTFILES_DIR=$HOME/.dotfiles
     (
         cd $DOTFILES_DIR
+
+        if [ -d keyd ]; then
+            sudo stow -t / keyd # keyd needs stow since it's /etc
+        fi
+
         stow *
     )
 
