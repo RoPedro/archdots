@@ -28,11 +28,9 @@ main() {
     (
         cd $DOTFILES_DIR
 
-        if [ -d keyd ]; then
-            sudo stow -t / keyd # keyd needs stow since it's /etc
-        fi
-
-        stow *
+        # Default Stow hierarchy doesn't work for /etc dirs, skipping keyd.
+        shopt -t extglob
+        stow !(keyd)
     )
 
     echo "Configuration complete, logout recommended."
