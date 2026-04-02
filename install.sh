@@ -29,8 +29,7 @@ main() {
         cd $DOTFILES_DIR
 
         # Default Stow hierarchy doesn't work for /etc dirs, skipping keyd.
-        shopt -t extglob
-        stow !(keyd)
+        stow --ignore='keyd' *
     )
 
     echo "Configuration complete, logout recommended."
