@@ -9,6 +9,8 @@ source ./utils.sh
 main() {
     check_configure_git
 
+    read -p "Do you wish to install desktop packages? (y/n): " desktop_toggle
+
     if ! command -v yay &>/dev/null; then
         echo "Yay is not installed. Installing yay..."
         install_yay
@@ -16,7 +18,7 @@ main() {
         echo "Yay is already installed."
     fi
 
-    install_packages
+    install_packages "${desktop_toggle,,}"
     install_tpm
 
     sudo chsh -s $(which zsh) $USER

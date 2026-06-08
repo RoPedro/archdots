@@ -24,7 +24,7 @@ install_packages() {
     echo "Installed pkgs: ${headless_pkgs[*]}"
     echo "Finished installing terminal packages."
 
-    if [ -n "$WAYLAND_DISPLAY" ]; then
+    if [[ "$1" == "y" || "$1" == "yes" ]]; then
         echo "Installing desktop pkgs..."
         for pkg in "${desktop_pkgs[@]}"; do
             yay -S --noconfirm $pkg || {
