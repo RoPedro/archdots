@@ -21,7 +21,7 @@ git clone https://github.com/RoPedro/archdots $HOME/archdots &&
 cd $HOME/archdots
 ```
 
-2. Run the install script:
+2. Run the install script: (You'll be asked for permission to install desktop related packages, choose `n` if you're running a terminal only setup like WSL2)
 ```bash
 ./install.sh
 ```
