@@ -23,6 +23,7 @@ headless_pkgs=(
     "mise"
     "fzf"
     "fd"
+    "github-cli"
 
     # Shell tools
     "zsh"
