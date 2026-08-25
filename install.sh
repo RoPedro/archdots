@@ -29,7 +29,7 @@ main() {
         cd $DOTFILES_DIR
 
         # Default Stow hierarchy doesn't work for /etc dirs, skipping keyd.
-        stow --ignore='keyd' *
+        stow *
     )
 
     echo "Configuration complete, logout recommended."
