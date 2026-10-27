@@ -51,4 +51,12 @@ headless_pkgs=(
     "zlib"
     "gdbm"
     "readline"
+
+    # GUI-related libraries
+    "gtk3"
+    "alsa-lib"
+    "at-spi2-core"
+    "nss"
+    "cairo"
+    "libcups"
 )
